@@ -1,9 +1,11 @@
 ---
-title: "About"
+title: "About Me"
 ---
 
-### About this site
 
-Sometimes you need to say a bit about the site -- how it was made, where it's hosted, where the source code can be found. 
 
-If this is for a project or analysis, I recommend giving some details about the R package versions that you used to create the content.
+My name is Angelica Vina Albarracin, and I am a student in the MS program in Biostatistics at Columbia University. I also hold a double-major MA from Columbia University in Developmental Psychology and Neuroscience and BA in Psychology from Universidad de Los Andes in my home country, Colombia.
+
+I work as a Project Manager at Columbia's Epidemiology Department. I manage and coordinate multi-omics projects combining different strategies to study the underlying biological mechanisms that intersect at the individual and macro-environment levels to increase the risk of breast cancer. My current research focuses on populations with a higher cancer burden, including those with a genetic predisposition, racial and ethnic minorities, and young women.
+
+My previous research experience includes working at dry and wet laboratories, where I helped design and build experimental systems and analytical tools to study how the brain transforms auditory signals between hierarchical processing stages, as well as studies using MRI and fMRI data to study the neural basis of addiction, learning, and decision-making.

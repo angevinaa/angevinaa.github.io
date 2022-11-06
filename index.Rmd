@@ -1,5 +1,9 @@
 ---
 title: "Angelica Vina Albarracin"
 ---
-<img src="images/Angelica_123_WEB.jpg" style="width:75%">
 
+![](images/Angelica_077_WEB.jpg){width="75%"}
+
+I'm a New York-based neuroscientist specializing in Brain Development, Cognitive Neuroscience, Biomedical Research, Neuroimaging, and Computational Biology. I have experience designing, launching, and successfully managing large, impactful research projects on diverse topics such as Alzheimer's disease, decision-making, opioid addiction, and, most recently, breast cancer tumor biomarkers. I am passionate about data; I love working with challenging datasets and turning complex ideas and impossible projects into reality.
+
+Welcome, keep exploring; maybe you'll find something inspiring, and if you have any questions, don't hesitate to reach out!
