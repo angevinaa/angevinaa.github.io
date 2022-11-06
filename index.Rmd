@@ -1,0 +1,5 @@
+---
+title: "Angelica Vina Albarracin"
+---
+<img src="images/Angelica_123_WEB.jpg" style="width:75%">
+
