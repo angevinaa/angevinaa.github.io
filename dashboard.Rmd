@@ -54,7 +54,7 @@ fig1
 
 ### NYC Restaurants Cuisine Type by Borough
 
-Manhattan has the most restaurants of all five boroughs. American cuisine is the most common in NYC, followed Chinese and Pizza. Of all five boroughs, Manhattan has the most diversity of cuisines. 
+Manhattan has the most restaurants of all five boroughs. American cuisine is the most common in NYC, followed by Chinese and Pizza. Of all five boroughs, Manhattan has the most diversity of cuisines. 
 
 N = 4000
 
