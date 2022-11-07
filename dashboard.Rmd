@@ -1,0 +1,144 @@
+---
+title: "Data Visualization of the NYC Restaurant Inspections"
+output: 
+  flexdashboard::flex_dashboard:
+    orientation: columns
+    vertical_layout: fill
+---
+
+```{r setup, include=FALSE}
+library(tidyverse)
+library(p8105.datasets)
+library(dplyr)
+
+library(plotly)
+library(flexdashboard)
+```
+
+Column {data-width=650}
+-----------------------------------------------------------------------
+
+For P8105, I create a flexdashboard using `plotly`. From the `NYC Restaurant Inspections` dataset, available in the `p8105.datasets` package.
+
+### NYC Restaurants by Cuisine Type
+
+New York City is one of the most diverse cities in the world and has the largest population of immigrants on the entire planet. That's why it is no surprise to find such a diversity of cuisines from so many countries:
+
+N = 4000
+
+```{r}
+#load data
+
+data(rest_inspec)
+
+# r sample dataframe; selecting a random subset in r
+# df is a data frame; pick 5 rows
+
+rest_sample = sample_n(rest_inspec, 4000)
+
+fig1 = plot_ly(rest_sample, labels = ~cuisine_description,
+        type = 'pie',
+        textposition = 'inside',
+        textinfo = 'label+percent',
+        insidetextfont = list(color = '#FFFFFF'),
+        hoverinfo = 'text',
+        marker = list(line = list(color = '#FFFFFF', width = 1)),
+        showlegend = FALSE)
+
+fig1 = fig1 %>% layout(title = 'Diversity of Cuisines in NYC Restaurants',
+         xaxis = list(showgrid = FALSE, zeroline = FALSE, showticklabels = FALSE),
+         yaxis = list(showgrid = FALSE, zeroline = FALSE, showticklabels = FALSE))
+
+fig1
+```
+
+### NYC Restaurants Cuisine Type by Borough
+
+
+N = 4000
+
+```{r}
+
+cuisine_df = rest_inspec %>% 
+  select(boro, cuisine_description, inspection_date, score, grade) %>% 
+  filter(.data = ., cuisine_description == c("American", "Spanish", "Seafood","Italian","Korean","African","French","Japanese","Mexican","Korean")) %>% 
+  na.omit()
+
+fig2 = cuisine_df %>%
+  group_by(boro,cuisine_description) %>%
+  summarize(count = n()) %>%
+  plot_ly(
+    x = ~boro, y = ~count, color = ~cuisine_description,
+    type = "bar"
+  )
+
+fig2 = fig2 %>% layout(title = "Diversity of Restaurant Cuisines by NYC Borough",
+         barmode = 'group',
+         yaxis = list(title = "Number of Restaurants"),
+         xaxis = list(title = "Borough"))
+
+fig2
+
+
+```
+
+
+
+
+Column {data-width=650}
+-----------------------------------------------------------------------
+
+### NYC Restaurants Inspection Grade by Borough
+
+The New York City Department of Health conducts unannounced inspections of restaurants at least once a year to protect diners from undercooked poultry, no properly washed surfaces, room temperature terrines, tobacco smoke, evidence of mice in the dining room, etc. Violations of food safety rules carry point values, and a restaurant's score corresponds to a letter grade. The lower the score, the better the grade. Restaurants with a score between 0 and 13 points will receive an A, those with 14 to 27 points will receive a B, and 28 or more points will receive a C.
+
+N = 4000
+
+```{r}
+
+grade_df = rest_sample %>% 
+  select(boro, cuisine_description, inspection_date, score, grade) %>% 
+  filter(.data = ., grade == c("A", "B", "C")) %>% 
+  na.omit()
+
+fig3 = grade_df %>%
+  group_by(boro,grade) %>%
+  summarize(count = n()) %>%
+  plot_ly(
+    y = ~boro, x = ~count, color = ~grade,
+    type = "bar"
+  )
+
+fig3 = fig3 %>% layout(title = "Inspection Grades for All Five Boroughs",
+         barmode = 'group',
+         xaxis = list(title = "Number of Restaurants"),
+         yaxis = list(title = "Borough"))
+
+fig3
+```
+
+### Heatmap of Inspection Score by Cusine Type and Location
+
+A heatmap was created to visualize the scores between cuisine and location. The darker cells represent higher violation scores (worse hygiene), and lighter cells represent lower violation scores (better hygiene).
+
+N = 4000
+
+```{r}
+
+fig4 = 
+  ggplot(cuisine_df, aes(boro, cuisine_description, fill = score)) +  # Heatmap snowfall by month
+  geom_tile() +
+  labs( title = "Inspection Score by Borough and Cuisine Type", 
+        x = "Borough", 
+        y = "Cuisine Type") +   
+  theme(axis.text.y = element_text(size = 6)) +
+  theme(plot.title = element_text(hjust = 0)) +
+  theme(axis.ticks = element_blank()) +
+  theme(axis.text = element_text(size = 7)) +
+  theme(legend.title = element_text(size = 8)) +
+  theme(legend.text = element_text(size = 6)) +
+  theme(plot.title = element_text(hjust = 0.5))
+
+ggplotly(fig4)
+```
+

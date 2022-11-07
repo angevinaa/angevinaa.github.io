@@ -4,7 +4,7 @@ title: "About Me"
 
 
 
-My name is Angelica Vina Albarracin, and I am a student in the MS program in Biostatistics at Columbia University. I also hold a double-major MA from Columbia University in Developmental Psychology and Neuroscience and BA in Psychology from Universidad de Los Andes in my home country, Colombia.
+My name is Angelica Vina Albarracin, and I am a student in the MS program in Epidemiology at Columbia University. I also hold a double-major MA from Columbia University in Developmental Psychology and Neuroscience and BA in Psychology from Universidad de Los Andes in my home country, Colombia.
 
 I work as a Project Manager at Columbia's Epidemiology Department. I manage and coordinate multi-omics projects combining different strategies to study the underlying biological mechanisms that intersect at the individual and macro-environment levels to increase the risk of breast cancer. My current research focuses on populations with a higher cancer burden, including those with a genetic predisposition, racial and ethnic minorities, and young women.
 
