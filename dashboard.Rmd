@@ -45,7 +45,7 @@ fig1 = plot_ly(rest_sample, labels = ~cuisine_description,
         marker = list(line = list(color = '#FFFFFF', width = 1)),
         showlegend = FALSE)
 
-fig1 = fig1 %>% layout(title = 'Diversity of Cuisines in NYC Restaurants',
+fig1 = fig1 %>% layout(title = 'Diversity of Restaurants Cuisines in NYC',
          xaxis = list(showgrid = FALSE, zeroline = FALSE, showticklabels = FALSE),
          yaxis = list(showgrid = FALSE, zeroline = FALSE, showticklabels = FALSE))
 
@@ -54,6 +54,7 @@ fig1
 
 ### NYC Restaurants Cuisine Type by Borough
 
+Manhattan has the most restaurants of all five boroughs. American cuisine is the most common in NYC, followed Chinese and Pizza. Of all five boroughs, Manhattan has the most diversity of cuisines. 
 
 N = 4000
 
@@ -61,7 +62,7 @@ N = 4000
 
 cuisine_df = rest_inspec %>% 
   select(boro, cuisine_description, inspection_date, score, grade) %>% 
-  filter(.data = ., cuisine_description == c("American", "Spanish", "Seafood","Italian","Korean","African","French","Japanese","Mexican","Korean")) %>% 
+  filter(.data = ., cuisine_description == c("American", "Spanish", "Seafood","Italian","Korean","African","French","Japanese","Mexican","Korean","Pizza","Caribbean")) %>% 
   na.omit()
 
 fig2 = cuisine_df %>%
@@ -119,7 +120,7 @@ fig3
 
 ### Heatmap of Inspection Score by Cusine Type and Location
 
-A heatmap was created to visualize the scores between cuisine and location. The darker cells represent higher violation scores (worse hygiene), and lighter cells represent lower violation scores (better hygiene).
+A heatmap was created to visualize the scores between cuisine and location. The lighther cells represent higher violation scores (worse hygiene), and darker cells represent lower violation scores (better hygiene).
 
 N = 4000
 
